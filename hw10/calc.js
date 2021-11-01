@@ -11,6 +11,9 @@ $(function(){
 	 * If the values in the text fields are valid, then proceed to send the request to the API server.
 	 * By saying "valid" I mean the values in the fields are numbers. The "divided by zero" error is left for the server to find out and all the code needs to do in that case is to let the user know the error by showing an alert.*/
 	$("input.submit-btn").click(function(e) {
+
+		$("#ansDiv").html("");
+
 		$("#input-form").submit();
 
 		//console.log($(this).text() + "clicked");
