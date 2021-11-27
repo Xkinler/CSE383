@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Navigation App - Directions</title>
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="css/style.css">
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+		<script type="text/javascript" src="js/util.js"></script>
+		<script type="text/javascript" src="js/directions.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+					<div class="container">
+						<a class="navbar-brand" href="index.html">
+							<img src="image/map-icon.svg" class="d-inline-block align-text-top" alt="Go back to the homepage" width="30px" height="30px">
+							Navigation
+						</a>
+						
+						<button type="button" class="navbar-toggler ms-auto" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
+						<div class="collapse navbar-collapse" id="navContent">
+							<div class="navbar-nav">
+								<a class="nav-link mx-1" href="index.html">Home</a>
+								<a class="nav-link mx-1" href="directions.html">Directions</a>
+								<a class="nav-link mx-1" href="history.html">History</a>
+							</div>
+						</div>
+					</div>
+
+				</nav>
+			</div>
+		</div>
+
+		<div class="container h-100">
+
+			<div class="row my-3 text-center">
+				<h1>Directions</h1>
+			</div>
+
+			<div class="row mt-4 mb-5 text-center new-font">
+				<div class="col">
+					Get turn-by-turn directions from one place to another
+				</div>
+			</div>
+
+			<div class="row my-2 d-none" id="alert-row">
+				<div class="alert alert-dismissible fade show my-2 w-100" role="alert" id="alert">
+                                	<div class="ms-2" id="alert-body">
+                                        	<span id="alert-icon" class='bi'></span>
+                                        	<span id="alert-text" class="ms-1"></span>
+						<button type="button" class="btn-close" aria-label="Close" id="alert-close"></button>
+					</div>
+                        	</div>
+			</div>
+
+			 <div class="row mt-4 me-3 justify-content-center" id="directions-row">
+				<div class="col-lg-3 p-3 shadow me-lg-3" id="dir-input">
+					<form id="input-form" method="POST">
+						<div class="mb-3">
+							<label for="from" class="form-label">From</label>
+							<input type="text" class="form-control" name="from" placeholder="Start address...">
+						</div>
+						<div class="mb-3">
+							<label for="to" class="form-label">To</label>
+							<input type="text" class="form-control" name="to" placeholder="End Address...">
+						</div>
+
+						<div class="mb-3">
+							<div class="row mb-2">
+								<div class="col">Route Type</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<div>
+										<input type="radio" class="btn-check" name="routeType" id="fastest-radio" value="fastest" autocomplete="off" checked>
+										<label class="btn btn-outline-secondary" for="fastest-radio"><span class="bi bi-lightning-charge-fill"></span> Fastest</label>
+
+										<input type="radio" class="btn-check" name="routeType" id="shortest-radio" value="shortest" autocomplete="off">
+                                                                        	<label class="btn btn-outline-secondary" for="shortest-radio"><span class="bi bi-signpost-fill"></span> Shortest</label>
+										<input type="radio" class="btn-check" name="routeType" id="pedestrian-radio" value="pedestrian" autocomplete="off">
+										<label class="btn btn-outline-secondary" for="pedestrian-radio"><span class="bi bi-people-fill"></span> Pedestrian</label>
+										<input type="radio" class="btn-check" name="routeType" id="bycicle-radio" value="bicycle" autocomplete="off">
+                                                                        	<label class="btn btn-outline-secondary" for="bycicle-radio"><span class="bi bi-bicycle"></span> Bycicle</label>
+									</div>
+								</div>
+							</div>
+						</div>	
+					
+						<div class="mb-3">
+							<div class="row px-3 mt-5">
+								<input type="submit" class="btn btn-secondary" value="Submit">
+							</div>
+						</div>
+					</form>
+
+				</div>
+				<div class="col-lg mt-4 mt-lg-0 h-100" id="dir-output">
+					<div class="d-flex flex-row-reverse mb-2">
+						<div class="btn-group btn-group-sm d-none" id="result-type-selector">
+							<input type="radio" class="btn-check route-type" id="route-opt" name="resType" value="route" checked>
+							<label class="btn btn-outline-secondary" for="route-opt">Route</label>
+
+							<input type="radio" class="btn-check route-type" id="elevation-opt" name="resType" value="elevation">
+                                                        <label class="btn btn-outline-secondary" for="elevation-opt">Elevation</label>
+						</div>
+					</div>
+					<ul class="collapse list-group" id="result-list"></ul>
+					<img class="collapse" id="elevation">
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	</body>
+</html>

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=M+PLUS+1p:wght@100;300;400;500;700;800;900&display=swap');
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css");
+
+.navbar {
+	border-radius: 10px;
+}
+
+#bg-col {
+	position: relative;
+}
+
+.top {
+	position: absolute;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+.light-bg {
+	background-color: rgba(255, 255, 255);
+	opacity: 0;
+	width: 98.5%;
+}
+
+#content-col {
+	position: absolute;
+	top: 20%;
+	align:center;
+}
+
+.new-font {
+	font-family: 'Acme', sans-serif;
+        font-family: 'M PLUS 1p', sans-serif;
+}
+
+.main-line {
+	font-size: 3em;
+	font-weight: 900;
+}
+
+.info {
+	position: relative;
+	font-size: 1.5em;
+	
+}
+
+.text-opacity-anim {
+	opacity: 0;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+html,body {
+	margin:0px;
+	height:100%;
+}
+
+#result-list, #history-list {
+	height: 100%;
+	overflow: scroll;
+}
+
+#directions-row {
+	height: 90%;
+}
+
+#search {
+	max-width: fit-content;
+}
+
+#history-list-container {
+	height: 100%;
+
+}
