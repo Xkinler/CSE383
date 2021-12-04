@@ -53,8 +53,6 @@ $(document).ready(function() {
 		})
 		.done(function(dat) {
 			dismissAlert(alertDOMSelector, alertDOMContainerSelector);
-			console.log(dat);
-			debugDat = dat;
 			let errorMsg = -1;
 
 			if(dat.info.messages.length != 0) {
@@ -99,7 +97,6 @@ $(document).ready(function() {
 				}
 			})
 			.done(function(){
-				console.log('Store succeeded!');
 			})
 			.fail(function(){
 				console.log('Store failed');

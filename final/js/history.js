@@ -13,7 +13,7 @@ function addHistoryItem(historyListSelector, resultTypeSelectorSelector, resultL
 		return;
 	}
 
-	if(num > all.result.length) {
+	if(num > all.result.length || num === 0) {
 		num = all.result.length;
 	}
 
@@ -38,7 +38,7 @@ function addHistoryItem(historyListSelector, resultTypeSelectorSelector, resultL
 							<div class="row">
 								<b>
 									<span class="bi bi-geo-alt-fill"></span>
-										`+ startLocation  +` --&gt;` + endLocation + ` (`+ type +`)
+										`+ startLocation  +` --&gt;&nbsp;` + endLocation + ` (`+ type +`)
 								</b>
 							</div>
 
@@ -94,9 +94,8 @@ $(document).ready(function() {
 		for(i = 0; i < formDat.length; i++) {
 			let v = formDat[i];
 
-                        if(v.name === "date" && v.value === "" ||
-                           v.name === "number" && v.value === "") {
-                                showAlert('error', 'Please fill <strong>all fields</strong>', true);
+                        if(v.name === "date" && v.value === "") {
+                                showAlert('error', 'You must fill the <strong>Date</strong> field', true);
                                 return;
                         }
 
@@ -106,10 +105,14 @@ $(document).ready(function() {
                         switch(v.name) {
                                 case "date": date = v.value; break;
                                 case "number": 
-					num = parseInt(v.value);
-					if(isNaN(num)) {
-						showAlert('error', 'Please give a <b>number</b> for the number of items for the history list', true);
-						return;
+					if(v.value === "") {
+						num = 0;
+					} else {
+						num = parseInt(v.value);
+						if(isNaN(num)) {
+							showAlert('error', 'Please give a <b>number</b> for the number of items for the history list', true);
+							return;
+						}
 					}
 					break;
                                 default: return;
@@ -133,7 +136,7 @@ $(document).ready(function() {
 		.done(function(dat) {
 
 			dismissAlert(alertDOMSelector, alertDOMContainerSelector);
-			console.log(dat);
+			// console.log(dat);
 
 			addHistoryItem(historyListSelector, resultTypeSelectorSelector, resultListSelector, elevationSelector, dat, num);
 

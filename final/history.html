@@ -61,19 +61,25 @@
                         	</div>
 			</div>
 			<form id='search-form' method="POST">
-				<div class='d-flex flex-row flex-justify-content-start' id="search">
-					<div class="input-group">
-						<span class='input-group-text'><span class='bi bi-calendar-date'></span></span>
-						<input type="date" class="form-control" placeholder="Pick A Date..." id="date-picker" name="date">
+				<div class='row' id="search">
+					<div class="col">
+						<div class="input-group">
+							<span class='input-group-text'><span class='bi bi-calendar-date'></span></span>
+							<input type="date" class="form-control" placeholder="Pick A Date..." id="date-picker" name="date">
+						</div>
 					</div>
-					<input type="number" class="form-control ms-2" min="1" name="number" max="999" id="item-number">
-					<label class="ms-2" for="item-number">items</label>
-					<input type="submit" class="btn btn-secondary ms-2" value="Search">
+					<div class="col text-center text-sm-start">
+						<input type="number" class="form-control ms-2" size=3 min="1" name="number" max="999" id="item-number">
+						<label for="item-number">items</label>
+					</div>
+					<div class="col text-sm-start">
+						<input type="submit" class="btn btn-secondary ms-2" value="Search">
+					</div>
 				</div>
 			</form>
 
 			 <div class="row mt-3 me-3 justify-content-center" id="directions-row">
-				<div class="col-lg-5 p-3 shadow me-lg-3" id="history-list-container">
+				<div class="col-lg-5 p-3 shadow me-lg-3 ms-3" id="history-list-container">
 					<ul class="list-group" id="history-list">
 					</ul>
 				</div>
